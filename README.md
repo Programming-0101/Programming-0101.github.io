@@ -2,7 +2,4 @@
 
 Home of the **H**ands **O**n **T**utorial (*HOT*) Labs.
 
-| Week | Topic |
-|------|-------|
-| 1    | Course Introduction<br />C# Review |
-
+![](posts/images/construction_multiple_accidents_500_clr_9573.gif)
