@@ -1,5 +1,5 @@
 ---
 position: right
 ---
-- [Articles](nav.articles.md)
-- [Samples](nav.samples.md)
+- [Home](README.md)
+- [Vue-Hub](about/vue-hub.md)

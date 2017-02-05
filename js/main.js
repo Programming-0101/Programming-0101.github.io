@@ -2,7 +2,8 @@
   window.addEventListener('load', function () {
     const store = new Vuex.Store({
       state: {
-        navs: []
+        navs: [],
+        domainPath: ''
       },
       mutations: {
         loadNavs(state, payload) {
@@ -231,6 +232,9 @@
       data: {
         navDoc: 'nav.md',
         defaultDoc: 'README.md'
+      },
+      created: function() {
+        
       },
       mounted: function () {
         this.navDoc = this.$el.dataset.nav;
