@@ -30,6 +30,14 @@
       renderer.link = customLinkRenderer;
       renderer.image = customImageRenderer;
 
+      /* Fetch infrastructure */
+      const status = (response) => {
+        return (response.status >= 200 && response.status < 300)
+                    ? Promise.resolve(response)
+                    : Promise.reject(new Error(response.statusText));
+      }
+      const responseToText = (response) => response.text();
+
       return fetch(path, { method: 'GET', cache: 'reload' })
         .then(status)
         .then(responseToText)
@@ -38,15 +46,6 @@
 
       /* ************ Hoisted Functions ************** */
       /* Fetch infrastructure */
-      function status(response) {
-        if (response.status >= 200 && response.status < 300) {
-          return Promise.resolve(response)
-        } else {
-          return Promise.reject(new Error(response.statusText))
-        }
-      }
-
-      function responseToText(response) { return response.text(); }
 
       function markdownToFrontMatterMarkup(text) {
         var md = text.split(/\r?\n/); // \r is optional to work both locally with lite-server and in production
@@ -113,9 +112,7 @@
           }
         }
         var out = '<a href="' + href + '"';
-        if (title) {
-          out += ' title="' + title + '"';
-        }
+        out += title ? ' title="' + title + '"' : '';
         out += '>' + text + '</a>';
         return out;
       }
@@ -125,9 +122,7 @@
         //   href = foptions.routeAdapter(href);
         // }
         var out = '<img src="' + href + '" alt="' + text + '"';
-        if (title) {
-          out += ' title="' + title + '"';
-        }
+        out += title ? ' title="' + title + '"':'';
         out += this.options.xhtml ? '/>' : '>';
         return out;
       }
