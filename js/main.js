@@ -1,4 +1,9 @@
 (function () {
+  const locationPathName = window.location.pathname;
+  const folder = path => path.substring(0, path.lastIndexOf('/'));
+  const locationFolder = folder(locationPathName);
+  console.log(locationFolder);
+
   window.addEventListener('load', function () {
     const store = new Vuex.Store({
       state: {
@@ -170,6 +175,7 @@
           if (!toFile) {
             toFile = this.$root.defaultDoc;
           }
+          console.log(folder(toFile));
           var process = this.process;
           console.log(process);
           fetchMarkdown(toFile, { routeAdapter: MdContent.routeLinkAdapter }).then(process);
