@@ -36,12 +36,19 @@
       renderer.image = customImageRenderer;
 
       /* Fetch infrastructure */
-      const status = (response) => {
-        return (response.status >= 200 && response.status < 300)
-                    ? Promise.resolve(response)
-                    : Promise.reject(new Error(response.statusText));
-      }
+// <functionalCode>
+      const isGoodStatus = status => status >=200 && status < 300;
+      const status = (response) => (isGoodStatus(response.status))
+        ? Promise.resolve(response)
+        : Promise.reject(new Error(response.statusText));
+
       const responseToText = (response) => response.text();
+      const splitText = text => text.split(/\r?\n/); // \r is optional to work both locally with lite-server and in production
+      const indexOfFrontMatterMarker = arr => arr.indexOf('---');
+      const startsWithFrontMatterMarker = arr => indexOfFrontMatterMarker(arr) === 0;
+      const emptyArray = () => [];
+      const toNewLineString = arr => arr.join('\n');
+// </functionalCode>
 
       return fetch(path, { method: 'GET', cache: 'reload' })
         .then(status)
@@ -51,16 +58,15 @@
 
       /* ************ Hoisted Functions ************** */
       /* Fetch infrastructure */
-
       function markdownToFrontMatterMarkup(text) {
-        var md = text.split(/\r?\n/); // \r is optional to work both locally with lite-server and in production
-        var fm = [];
-        if (md.indexOf('---') === 0) {
+        var md = splitText(text);
+        var fm = emptyArray();
+        if (startsWithFrontMatterMarker(md)) {
           fm = md.splice(0, md.indexOf('---', 1));
           md = md.splice(1, md.length - 1);
         }
-        var fms = fm.join('\n');
-        var mds = md.join('\n');
+        var fms = toNewLineString(fm);
+        var mds = toNewLineString(md);
         var content = {
           frontMatter: YAML.parse(fms),
           markup: marked.parse(mds, { renderer: renderer }),
