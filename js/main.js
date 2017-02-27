@@ -4,6 +4,8 @@
   const locationFolder = folder(locationPathName);
   console.log(locationFolder);
 
+
+
   window.addEventListener('load', function () {
     const store = new Vuex.Store({
       state: {
@@ -60,11 +62,9 @@
       /* Fetch infrastructure */
       function markdownToFrontMatterMarkup(text) {
         var md = splitText(text);
-        var fm = emptyArray();
-        if (startsWithFrontMatterMarker(md)) {
-          fm = md.splice(0, md.indexOf('---', 1));
-          md = md.splice(1, md.length - 1);
-        }
+        var fm = startsWithFrontMatterMarker(md) ?  md.slice(0, md.indexOf('---', 1)) : emptyArray();
+        md = startsWithFrontMatterMarker(md) ? md.slice(md.indexOf('---',1) + 1, md.length) : md;
+
         var fms = toNewLineString(fm);
         var mds = toNewLineString(md);
         var content = {
@@ -134,7 +134,13 @@
         // }
         var out = '<img src="' + href + '" alt="' + text + '"';
         out += title ? ' title="' + title + '"':'';
+// TODO: Clean up the srcset alternate path(s)
+var altpath = folder(store.state.route.params.mdFile);
+
+out += ' srcset="' + altpath + '/' + href +'" ';
         out += this.options.xhtml ? '/>' : '>';
+
+
         return out;
       }
 
@@ -183,7 +189,7 @@
           }
           console.log(folder(toFile));
           var process = this.process;
-          console.log(process);
+          // console.log(process);
           fetchMarkdown(toFile, { routeAdapter: MdContent.routeLinkAdapter }).then(process);
         }
       },
@@ -210,6 +216,67 @@
       routes: routes // in es6, just use:  routes
     });
 
+// TODO: look for a better way to package the vuex-router-sync module
+    // sync function credits:
+    // https://github.com/vuejs/vuex-router-sync/blob/master/index.js
+    var sync = function (store, router, options) {
+      var moduleName = (options || {}).moduleName || 'route'
+
+      store.registerModule(moduleName, {
+        state: cloneRoute(router.currentRoute),
+        mutations: {
+          'router/ROUTE_CHANGED': function (state, transition) {
+            store.state[moduleName] = cloneRoute(transition.to, transition.from)
+          }
+        }
+      })
+
+      var isTimeTraveling = false
+      var currentPath
+
+      // sync router on store change
+      store.watch(
+        function (state) { return state[moduleName] },
+        function (route) {
+          if (route.fullPath === currentPath) {
+            return
+          }
+          isTimeTraveling = true
+          currentPath = route.fullPath
+          router.push(route)
+        },
+        { sync: true }
+      )
+
+      // sync store on router navigation
+      router.afterEach(function (to, from) {
+        if (isTimeTraveling) {
+          isTimeTraveling = false
+          return
+        }
+        currentPath = to.fullPath
+        store.commit('router/ROUTE_CHANGED', { to: to, from: from })
+      })
+    }
+
+    function cloneRoute (to, from) {
+      var clone = {
+        name: to.name,
+        path: to.path,
+        hash: to.hash,
+        query: to.query,
+        params: to.params,
+        fullPath: to.fullPath,
+        meta: to.meta
+      }
+      if (from) {
+        clone.from = cloneRoute(from)
+      }
+      return Object.freeze(clone)
+    };
+    
+    sync(store, router); // https://github.com/vuejs/vuex-router-sync/blob/master/README.md
+    
     Vue.use(VueRouter);
     // Vue.use(Vuex);
     Vue.component('core-content', {
@@ -223,7 +290,7 @@
       <nav v-for="item in allNavs" :class="item.frontMatter.position"><section v-html="item.markup"></section></nav>
       <header v-if="header"><h1>{{header.title}}</h1><p>{{header.summary}}</p></header>
     <article v-html="theContent" class="markdown-body"></article>
-    <footer v-if="footer"><ul><li>Author: {{footer.author}}</li><li>Contributors: {{footer.contributors}}</li><li>Created On: {{footer.created}}</li><li>Modified On: {{footer.modified}}</ul></footer>
+    <footer v-if="footer"><ul><li>Author: {{footer.author}}</li><li>Contributors: {{footer.contributors}}</li><li>Created On: {{footer.created}}</li><li>Modified On: {{footer.modified}}</li></ul></footer>
   </main>`
     });
 
