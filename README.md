@@ -1,5 +1,7 @@
-# Programming-0101.github.io
-
-Home of the **H**ands **O**n **T**utorial (*HOT*) Labs.
-
-![](posts/images/construction_multiple_accidents_500_clr_9573.gif)
+---
+title: Programming 0101
+description: Home of the Hands-On-Tutorial (HOT) Labs
+home: true
+heroImage: /images/6g0kjwnbhxg-luis-llerena.jpg
+footer: Copyright © 2004-Today Dan Gilleland
+---

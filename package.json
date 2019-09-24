@@ -1,0 +1,28 @@
+{
+  "name": "Programming-0101.github.io",
+  "version": "1.0.0",
+  "description": "Home of the Hands-On-Tutorial (HOT) Labs",
+  "main": "ReadMe.md",
+  "repository": "git@github.com:Programming-0101/Programming-0101.github.io.git",
+  "author": "Dan Gilleland <dagilleland@shaw.ca>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.1.0",
+    "@vuepress/plugin-back-to-top": "^1.1.0",
+    "@vuepress/plugin-medium-zoom": "^1.1.0",
+    "@vuepress/plugin-nprogress": "^1.1.0",
+    "@vuepress/plugin-pwa": "^1.1.0",
+    "@vuepress/plugin-search": "^1.1.0",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-checkbox": "^1.1.0",
+    "markdown-it-deflist": "^2.0.3",
+    "markdown-it-footnote": "^3.0.2",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-kbd": "^2.0.0",
+    "markdown-it-mark": "^3.0.0",
+    "markdown-it-mermaid": "^0.2.5",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "vuepress": "^1.1.0"
+  }
+}

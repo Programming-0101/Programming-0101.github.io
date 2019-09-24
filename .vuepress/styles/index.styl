@@ -1,0 +1,31 @@
+blockquote {
+  color: #4278b9;
+  border-left-color: #4278b9;
+  border-left-width: .5rem;
+}
+blockquote:before {
+    content: '\201C';
+    font-size: 3rem;
+    font-family: 'Sanchez', serif;
+    font-style: italic;
+    z-index: -1;
+    color: #d2d4d6;
+    font-weight: bolder;
+    float: left;
+    margin-top: -0.7rem;
+    margin-left:-0.7rem;
+    padding-right: 0.3rem;
+}
+
+p:first-of-type {
+    font-size: 1.1rem;
+}
+p:first-of-type:first-line {
+    /* font-weight: bold; */
+    font-size: 1.3rem;
+}
+
+img[src$="float-right"] {
+    float: right;
+    padding-left: 5px;
+}
