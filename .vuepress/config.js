@@ -23,7 +23,7 @@ module.exports = {
     editLinkText: 'Help us improve this page!',
     lastUpdated: 'Last updated on', // string | boolean
     nav: [
-        { text: 'The Book', link: '/TheBook/' },
+        { text: 'The Book', link: 'https://programming-0101.github.io/TheBook/' },
         { text: 'About', link: '/About/' },
     ],
   },
