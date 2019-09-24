@@ -6,6 +6,9 @@
   "repository": "git@github.com:Programming-0101/Programming-0101.github.io.git",
   "author": "Dan Gilleland <dagilleland@shaw.ca>",
   "license": "MIT",
+  "scripts": {
+    "test": "vuepress build"
+  },
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.1.0",
     "@vuepress/plugin-back-to-top": "^1.1.0",
