@@ -8,7 +8,7 @@ footer: CC-BY © 2004-Today Dan Gilleland
 
 ----
 
-Shield: [![CC BY 4.0][cc-by-shield]][cc-by] ![Author](https://img.shields.io/badge/Author-Dan%20Gilleland-lightgrey) ![Pseudo Author](https://img.shields.io/badge/Pseudo%20Author-Programming--0101-lightgrey)
+Shield: [![CC BY 4.0][cc-by-shield]][cc-by] [![Author](https://img.shields.io/badge/Author-Dan%20Gilleland-lightgrey)](https://github.com/dagilleland) [![Pseudo Author](https://img.shields.io/badge/Pseudo%20Author-Programming--0101-lightgrey)](https://github.com/Programming-0101)
 
 This work is licensed under a [Creative Commons Attribution 4.0 International
 License][cc-by] by Dan Gilleland (*Programming-0101*).
