@@ -47,7 +47,7 @@ paginate: true
 
 - Short representation of the grammar
 - Square brackets (**`[]`**) indicate an optional part of the syntax for the grammar rule
-- Brief explanation of terms.
+- Brief explanation of terms
 
 ----
 
@@ -118,6 +118,7 @@ An **Expression** is any combination of
 - *operators*, and/or 
 - *method calls* (where the method returns a value).
 
+* Expressions are ***evaluated*** at run-time.
 * When an expression is processed by the computer, a **single value** is produced.
 
 ----
@@ -323,3 +324,170 @@ A **Constructor** is a set of instructions used when **instantiating** (creating
 
 ----
 
+# Method Calls
+
+<!--
+While the [Method Declaration](#method-declarations) *defines a set of instructions*, those instructions only run when the method is *called* from somewhere. The operating system is responsible to call the `Main()` method, but after that, all method calls are the responsibility of our program. The grammar of a method call is as follows.
+-->
+
+```csharp
+[[ClassName | ObjectName].]MethodName(argumentList)
+```
+
+A **Method Call** is an expression where
+- `MethodName` is the programmer-defined name of the method,
+- `argumentList` is a comma-separated list of values that correspond to the parameters of the method declaration,
+- When called from outside the class, use
+  - `ClassName` for `static` methods
+  - `ObjectName` for **instance** methods
+  - The **Member Access Operator** (aka: "dot" operator `.`) right after the `ClassName` or `ObjectName`
+- When called from inside the class,
+  - `ClassName`/`ObjectName` can be omitted.
+
+----
+
+# `this` Keyword
+
+- Only used with **instance** (non-static) members of the class within which it is used
+- The `this` keyword is implied, but is optional
+
+    ```csharp
+    Display("Some Text")
+    ```
+
+    is interpreted as
+
+    ```csharp
+    this.Display("Some Text")
+    ```
+
+----
+
+# If-Else
+
+```csharp
+if(conditionalExpression)
+   statementOrStatementBlock // true side
+else
+   statementOrStatementBlock // false side
+```
+
+The **if-else** provides **alternate paths of logic**, where
+- `conditionalExpression` is an expression whose ultimate data type is a `bool`.
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block* (zero or more statements inside curly braces - `{ }`).
+  - The statement/block after the `if` portion will run if the `conditionalStatement` results in a **`true`** value.
+  - The statement/block after the `else` portion will run if the `conditionalStatement` results in a **`false`** value. The `else statementOrStatementBlock` portion is optional.
+
+----
+
+# Switch-Case
+
+```csharp
+switch(cardinalExpression)
+{
+   case matchingExpression1:
+   statementOrStatementBlock
+   break;
+   case matchingExpression2:
+   statementOrStatementBlock
+   break;
+   // ...additional case statements...
+   default:
+   statementOrStatementBlock
+   break;
+}
+```
+----
+
+# Switch-Case (cont.)
+
+The **switch** provides **alternate paths of logic**, where
+- `cardinalExpression` is an expression that produces a single value of any primitive data type (`int`, `double`, `char`, `string` or an `enum`).
+- Each `matchingExpression` is a constant value whose data type matches the data type of the `cardinalExpression`. A match is determined by the value of the `cardinalExpression` being **equal to** the `matchingExpression`. The `break` indicates the end of the path of logic for the matching expression.
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block* (zero or more statements inside curly braces - `{ }`).
+- The `default` block will execute if `cardinalExpression` did not match any of the listed matching expressions.
+
+----
+
+# `for` Loop
+
+<!--
+- `initializations` is a comma-separated set of variable initializations or assignments; the variables identified here should be ones used in the `conditionalExpression`. This portion is optional
+- `conditionalExpression` is an expression whose ultimate data type is a `bool`. The `conditionalExpression` is evaluated at the beginning of the loop.
+- `incrementations` is a comma-separated set of modifications to the variable(s) controlling the loop; the variables identified here should be ones used in the `conditionalExpression`. This portion is optional.
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block* (zero or more statements inside curly braces - `{ }`).
+  - The `statementOrStatementBlock` will only execute as long as the `contitionalExpression` results in a **`true`** value.
+  - The loop exits when the `conditionalStatement` results in a **`false`** value.
+-->
+
+```csharp
+for([initializations]; conditionalExpression; [incrementations])
+   statementOrStatementBlock
+```
+
+The **for** provides **repetitive execution of code**, where
+- `initializations` is an optional comma-separated set of variable initializations
+- `conditionalExpression` is an expression whose ultimate data type is a `bool`
+  - Evaluated at the beginning of the loop.
+  - Loop exits when the `conditionalStatement` is **`false`**
+- `incrementations` is an optional comma-separated set of variable modifications
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block*
+
+----
+
+# `foreach` Loop
+
+```csharp
+foreach([dataType] variable in enumerableCollection)
+   statementOrStatementBlock
+```
+
+The **for** provides **repetitive execution of code**, where the repetition occurs for each item in the `enumerableCollection`.
+- `enumerableCollection` is any object that represents a collection of values
+  - (i.e.: supports `IEnumerable`).
+- `variable` is an identifier to represent each item in the collection as it loops
+- `dataType` declares the data type of the variable
+  - This is optional
+  - When omitted the data type of `variable` is inferred from the `enumerableCollection`.
+
+----
+
+# `while` Loop
+
+```csharp
+while(conditionalExpression)
+   statementOrStatementBlock
+```
+
+The **while** provides **repetitive execution of code**, where
+- `conditionalExpression` is an expression whose ultimate data type is a `bool`
+  - Evaluated at the **beginning** of the loop.
+  - Loop exits when the `conditionalStatement` is **`false`**
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block*
+  - It executes at a **minimum** of **zero** times
+
+----
+
+# `do while` Loop
+
+```csharp
+do
+   statementOrStatementBlock
+while (conditionalExpression);
+```
+
+The **do-while** provides **repetitive execution of code**, where
+- `conditionalExpression` is an expression whose ultimate data type is a `bool`
+  - Evaluated at the **end** of the loop.
+  - Loop exits when the `conditionalStatement` is **`false`**
+- `statementOrStatementBlock` is either a **single** statement or a **single** statement *block*
+  - It executes at a **minimum** of **one** time
+
+----
+
+<!--
+_backgroundColor: #1111
+_color: black
+-->
+
+# The End
