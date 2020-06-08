@@ -49,6 +49,25 @@ paginate: true
 - Square brackets (**`[]`**) indicate an optional part of the syntax for the grammar rule
 - Brief explanation of terms
 
+* Common Grammar Elements
+* Classes and Class Members
+* Flow Control
+* Objects, Classes and More
+
+----
+
+<!--
+_backgroundColor: lightsteelblue
+-->
+# Common Grammar Elements
+
+- Program Statements and Statement Blocks
+- Variable Declarations
+- Assignment Operations
+- Expressions
+- Namespace Declarations
+- Using
+
 ----
 
 # Program Statements and Statement blocks
@@ -167,6 +186,19 @@ using static NamespaceName.DataTypeName;
 ```
 
 - Allows us to use the name of static members without the class name
+
+----
+
+<!--
+_backgroundColor: lightsteelblue
+-->
+# Classes and Class Members
+
+- Class Definition
+- Field Declarations
+- Property Declarations
+- Methods
+- Constructors
 
 ---
 
@@ -322,6 +354,21 @@ A **Constructor** is a set of instructions used when **instantiating** (creating
 - There is **no return type**
   - Classes never return any information - they are simply blocks of instructions used to set up the **initial state** of the object.
 
+----
+
+<!--
+_backgroundColor: lightsteelblue
+-->
+# Flow Control
+
+- Method Calls
+- Selection
+  - If-Else
+  - Switch
+- Loops
+  - For + ForEach
+  - While + Do-While
+ 
 ----
 
 # Method Calls
@@ -482,6 +529,20 @@ The **do-while** provides **repetitive execution of code**, where
   - Loop exits when the `conditionalStatement` is **`false`**
 - `statementOrStatementBlock` is either a **single** statement or a **single** statement *block*
   - It executes at a **minimum** of **one** time
+
+----
+
+<!--
+_backgroundColor: lightsteelblue
+-->
+# Objects, Classes and More
+
+- Object Instantiation
+- Classes and Inheritance
+- Enums
+- Interfaces
+- Delegates
+- Events
 
 ----
 

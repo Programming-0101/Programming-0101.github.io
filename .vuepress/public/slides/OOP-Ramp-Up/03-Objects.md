@@ -1,3 +1,8 @@
+---
+marp: true
+paginate: true
+---
+
 # Inheritance vs. Composition
 
 - [ ] Introduce inheritance and composition ("favor composition over inheritance")
