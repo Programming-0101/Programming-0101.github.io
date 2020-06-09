@@ -237,7 +237,7 @@ public class PlayingCard
     }
     public override string ToString()
     {
-        return $"{Value} {Suit}s";
+        return $"{Value} {Suit}";
     }
 }
 ```
