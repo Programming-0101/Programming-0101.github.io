@@ -251,7 +251,7 @@ public int Pop()
     if (IsEmpty)
         throw new UnderflowException();
     _Size--;
-    return _E_lement;
+    return _Element;
 }
 ```
 
