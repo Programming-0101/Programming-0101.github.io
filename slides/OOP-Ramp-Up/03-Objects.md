@@ -3,7 +3,7 @@ marp: true
 paginate: true
 ---
 
-![bg left:45% ](02/car-bluprint.jpg)
+![bg left:45% ](03/car-bluprint.jpg)
 
 # Class
 
@@ -30,7 +30,7 @@ public class Car
 
 ----
 
-![bg right:45% fit](02/car-instance.jpg)
+![bg right:45% fit](03/car-instance.jpg)
 
 # Object
 
@@ -42,7 +42,7 @@ new Car("1234", "P120", "Audi", "green")
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Die Class
 
@@ -73,7 +73,7 @@ public class Die
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Fraction Class (1 of 3)
 ### Properties + Constructor
@@ -97,7 +97,7 @@ public class Die
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Fraction Class (2 of 3)
 ### Methods
@@ -122,7 +122,7 @@ public class Die
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Fraction Class (3 of 3)
 ### Enhancements
@@ -134,7 +134,7 @@ public class Die
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Angle Class (1 of 3)
 
@@ -159,7 +159,7 @@ public class Angle
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Angle Class (2 of 3)
 
@@ -185,7 +185,7 @@ public double Grads
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Angle Class (3 of 3) - `public string AngleType {...}`
 
@@ -201,17 +201,17 @@ Angle Range     | Angle Type
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Composition
 
 | DeckOfCards | PlayingCard | CardSuit | CardValue |
 |---|---|---|---|
-| ![](02/K-DeckOfCards.png) | ![](02/K-PlayingCard.png) | ![](02/K-CardSuit.png) | ![](02/K-CardValue.png) |
+| ![](03/K-DeckOfCards.png) | ![](03/K-PlayingCard.png) | ![](03/K-CardSuit.png) | ![](03/K-CardValue.png) |
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # PlayingCard
 
@@ -242,11 +242,11 @@ public class PlayingCard
 }
 ```
 
-![right](02/K-PlayingCard.png)
+![right](03/K-PlayingCard.png)
 
 ---
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Enums (Inside `PlayingCard`)
 
@@ -259,7 +259,7 @@ public class PlayingCard
     h1 { grid-column: 1 / 5 }
 </style>
 
-![](02/K-CardSuit.png)
+![](03/K-CardSuit.png)
 
 ```csharp
 public enum CardSuit
@@ -289,11 +289,11 @@ public enum CardValue
     KING
 }
 ```
-![](02/K-CardValue.png)
+![](03/K-CardValue.png)
 
 ----
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Deck *(Properties/Constructor)*
 
@@ -325,11 +325,11 @@ public class DeckOfCards
 }
 ```
 
-![](02/K-DeckOfCards.png)
+![](03/K-DeckOfCards.png)
 
 ----
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Deck *(Methods)*
 
@@ -369,11 +369,11 @@ public class DeckOfCards
 }
 ```
 
-![](02/K-DeckOfCards.png)
+![](03/K-DeckOfCards.png)
 
 ----
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Using `DeckOfCards` etc.
 
@@ -383,7 +383,7 @@ public class DeckOfCards
 
 ----
 
-![bg cover opacity:.15](02/blueprint.jpg)
+![bg cover opacity:.15](03/blueprint.jpg)
 
 # Improving `DeckOfCards`
 
