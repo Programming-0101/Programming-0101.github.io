@@ -58,6 +58,8 @@ const int RETURN_MINOR_DAMAGE = 1;
 
 # Magic Numbers - The Land Before `enum`
 
+> "Magic Numbers" are an imperfect solution
+
 * How do you share constants among classes/objects?
 * How do you stop the "explosion" of simple constants?
 * How do you "group" constants to distinguish them (*aside from just using a prefix*)?
@@ -114,9 +116,9 @@ By default, enum values
 ```csharp
 public enum ReturnState
 {
-    NoDamage,          // = 1
-    MinorDamage,       // = 2
-    SignificantDamage  // = 3
+    NoDamage,          // = 0
+    MinorDamage,       // = 1
+    SignificantDamage  // = 2
 }
 ```
 
@@ -209,3 +211,18 @@ switch(status)
         break;
 }
 ```
+
+----
+
+# When to Use Enumerations
+
+* Distinguish between **simple** states (all you need is a custom *primitive* type)
+* Have three or more **distinct** states
+* Have three or more **overlapping** states (use with `[Flags]`)
+* There is **no** intrinsic **behaviour** to the state
+
+----
+
+<!-- _backgroundColor: #222 -->
+
+# The End
