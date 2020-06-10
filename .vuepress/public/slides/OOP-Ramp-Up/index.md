@@ -1,7 +1,7 @@
 # OOP Ramp-up
 
 - [Grammar](./01-Grammar.html)
-- [Enums]()
+- [Enums](./02-Enum.html)
 - [Simple Objects](./03-Objects.html)
 - [Object Inheritance]()
 - [Interfaces]()

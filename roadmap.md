@@ -4,4 +4,4 @@
 - [ ] Routing
 - [ ] Colophon page
 - [ ] Slides for Presentations
-  - [ ] [OOP Ramp-up](/slides/OOP-Ramp-Up/)
+  - [ ] [OOP Ramp-up](/slides/OOP-Ramp-Up)
