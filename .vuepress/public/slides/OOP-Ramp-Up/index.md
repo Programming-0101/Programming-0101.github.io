@@ -3,7 +3,7 @@
 - [Grammar](./01-Grammar.html)
 - [Enums](./02-Enum.html)
 - [Simple Objects](./03-Objects.html)
-- [Object Inheritance]()
+- [Object Inheritance](./04-Objects.html)
 - [Interfaces]()
 - [Delegates]()
 - [Events]()
