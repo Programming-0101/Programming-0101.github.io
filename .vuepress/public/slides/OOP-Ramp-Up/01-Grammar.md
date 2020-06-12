@@ -3,6 +3,33 @@ marp: true
 paginate: true
 ---
 
+<style>
+section {
+  justify-content: flex-start;
+}
+</style>
+
+<!--
+_backgroundColor: lightsteelblue
+-->
+
+<!-- This is party a refresher for those who have taken introductory C# courses -->
+<!-- Your introductory course may or may not have placed emphasis on the grammar -->
+<!-- Objects might not have been emphasized, but they are central to the C# language and should be understood as both essential and commonplace -->
+
+
+![bg right](./01/ball-457334_640.jpg)
+
+# A Simplified C# Grammar
+
+- [Introduction to C#](#2)
+- [Common Grammar Elements](#5)
+- [Classes and Class Members](#12)
+- [Flow Control](#21)
+- [Objects, Inheritance and More](#31)
+
+----
+
 # C#
 
 <!-- Case-Sensitive => UPPER- and lower-case case characters are different -->
@@ -16,6 +43,8 @@ paginate: true
 * **Type-Safe**
 * **Object-Oriented**
 * **Extensible**
+
+> An official [**Language Reference**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction) is available from Microsoft, including the [formal grammar](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure) for C#.
 
 ----
 
@@ -49,10 +78,14 @@ paginate: true
 - Square brackets (**`[]`**) indicate an optional part of the syntax for the grammar rule
 - Brief explanation of terms
 
+> Focus on
+
 * Common Grammar Elements
 * Classes and Class Members
 * Flow Control
 * Objects, Classes and More
+
+> Use this as a starting point for learning the C# Grammar, then reference the [**official grammar**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure).
 
 ----
 
@@ -98,7 +131,7 @@ A **Variable Declaration** defines a new variable where
 - `dataType` is any built-in or programmer-defined data type.
 - `variableName` is an **identifier** (name) to represent a value
 - an optional initial value may be assigned, as denoted by `[= expression]`,
-  - `expression` is any valid C# expression whose final data type matches the variable's data type.
+  - `expression` is any valid C# expressionthat matches the variable's data type.
   - Declaring and initializing at the same time is called **Variable Initialization**.
 - Additional variable names (with or without initial values) can be declared using a comma-separated list.
   - All variables are of the same data type as the first variable in the list.
@@ -117,10 +150,8 @@ variableName assignmentOperator expression
 - `assignmentOperator` is one of the following:
   - **`=`** Equals (*Assign*)
   - **`+=`** Plus-Equals and **`-=`** Minus-Equals
-  - **`*=`** Multiply-Equals and **`/=`** Divide-Equals
-  - **`%=`** Modulus-Equals
-- `expression` is any valid C# expression
-  - Final data type matches the variable's data type
+  - **`*=`** Multiply-Equals and **`/=`** Divide-Equals and **`%=`** Modulus-Equals
+- `expression` is any valid C# expression matching the variable's data type
 - Add a semicolon to make it an **assignment statement**
   - `total = price * quantity;`
 
@@ -209,6 +240,7 @@ _backgroundColor: lightsteelblue
 > - What a thing **looks like** (*Fields* and *Properties*)
 > - How a thing **behaves** (*Constructors* and *Methods*)
 
+> Classes are [**reference types**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types).
 <!--
 As an object-oriented language, classes play a very prominent part of the code we write in C#. It is within classes, for example, that we place variables (also called *fields*) and methods (which are "*named* sets of instructions"). One of the first things that classes give us developers is a *context* or ***scope*** for the code that we write. Classes are also building blocks, acting as blueprints for new and complex data types that we as programmers can create as we develop richer and more complex computer programs. Classes permeate all the code that we write in C# and are so fundamental that you can't even write a "Hello World" program without them.
 -->
@@ -283,12 +315,11 @@ In other situations, a property may merely have a getter where the body of the g
 [accessModifier] [static] dataType PropertyName
 {
     get { /* Body of getter */ }
-    set { /* Body of setter */ }
+    [set { /* Body of setter */ }]
 }
 ```
 
-- `[accessModifier]` is `public`, `private`, `protected`, or `internal`
-  - default is `private`.
+- `[accessModifier]` is `public`, `private` (the default), `protected`, or `internal`
 - `[static]` is optional
 - `dataType` is any built-in or programmer-defined data type
 - `PropertyName` is a the name you give to the property
@@ -385,9 +416,8 @@ A **Method Call** is an expression where
 - `MethodName` is the programmer-defined name of the method,
 - `argumentList` is a comma-separated list of values that correspond to the parameters of the method declaration,
 - When called from outside the class, use
-  - `ClassName` for `static` methods
-  - `ObjectName` for **instance** methods
-  - The **Member Access Operator** (aka: "dot" operator `.`) right after the `ClassName` or `ObjectName`
+  - `ClassName` for `static` methods, `ObjectName` for **instance** methods
+  - The **Member Access Operator** - `.` - after `ClassName`/`ObjectName`
 - When called from inside the class,
   - `ClassName`/`ObjectName` can be omitted.
 
@@ -422,8 +452,9 @@ else
 The **if-else** provides **alternate paths of logic**, where
 - `conditionalExpression` is an expression whose ultimate data type is a `bool`.
 - `statementOrStatementBlock` is either a **single** statement or a **single** statement *block* (zero or more statements inside curly braces - `{ }`).
-  - The statement/block after the `if` portion will run if the `conditionalStatement` results in a **`true`** value.
-  - The statement/block after the `else` portion will run if the `conditionalStatement` results in a **`false`** value. The `else statementOrStatementBlock` portion is optional.
+  - Immediately after the `if`: will run if `conditionalStatement` results in a **`true`**
+  - Immediately after the `else`: will run if `conditionalStatement` results in a **`false`**
+  - The `else statementOrStatementBlock` portion is optional.
 
 ----
 
@@ -535,16 +566,237 @@ The **do-while** provides **repetitive execution of code**, where
 <!--
 _backgroundColor: lightsteelblue
 -->
-# Objects, Classes and More
+# Objects, Inheritance and More
 
-- Object Instantiation
-- Classes and Inheritance
-- Enums
+- Enumerations
+- Structures
 - Interfaces
+- Data Types and Inheritance
+- Generics
+- Object Instantiation
+- Extension Methods
 - Delegates
 - Events
 
 ----
+
+# Enumerations
+
+> Enumerations are [**value types**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types).
+
+```csharp
+[accessModifier] enum TypeName
+{
+    NamedConstantList
+}
+```
+
+- `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
+- `TypeName` is the programmer-defined name for the enumerated type
+- `NamedConstantList` is a comma-separated list of names for constants in this format
+
+```csharp
+ConstantName [= value]
+```
+
+----
+
+# Structures
+
+> Structures are similar to classes, but are [**value types**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types).
+
+```csharp
+[accessModifier] struct TypeName
+{
+    // Structure members
+}
+```
+
+- `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
+- `TypeName` is the programmer-defined name for the structure type
+- The members of a struct include [**fields**](#15), [**properties**](#16), [**methods**](#19), and [**constructors**](#20)
+
+----
+
+# Interfaces
+
+> "An interface defines a contract. Any class or struct that implements that contract must provide an implementation of the members defined in the interface." ([source](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface))
+
+```csharp
+[accessModifier] interface TypeName
+{
+    // Interface members
+}
+```
+
+- `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
+- `TypeName` is the programmer-defined name for the interface type
+
+----
+
+# Interfaces
+
+Interface members can include the signatures for
+
+- Properties - Identify the presence of a getter and/or optional setter method
+- Methods - No body is specified for the method *(pre C# 8)*
+
+```csharp
+propertyType PropertyName { get; [set;] }
+```
+
+```csharp
+returnType MethodName(parameterList);
+```
+
+There are **no access modifiers** on interface members.
+
+----
+
+# Interface Implementations
+
+- You **cannot** directly instantiate an interface.
+- You can **reference** an object by its interface type.
+- Classes and structs can implement many interfaces.
+
+
+----
+
+# Data Types and Inheritance
+
+> Inheritance can be applied to classes, interfaces, and enumerations
+
+- A **`class`** can only **inherit** from one other class, but may **implement** multiple interfaces
+- An **`interface`** can only **inherit** from other interfaces
+- An **`enum`** can only **inherit** from the integer-based types `int`, `short`, `long`
+
+----
+
+# Data Types and Inheritance
+
+```csharp
+[accessModifier] - `typeKeyword` is either `class`, `enum` or `interface`
+ DerivedTypeName [: BaseType]
+{
+    // Members
+}
+```
+
+Inheritance "builds on" a base type data type where
+
+- `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
+- `typeKeyword` is either `class`, `enum` or `interface`
+- `DerivedTypeName` is the programmer-supplied name for the data type that **inherits from** the `BaseType`
+
+----
+
+# Type Inheritance and Interface Implementation
+
+```csharp
+[accessModifier] class DerivedTypeName [: BaseType[, InterfaceTypes...]]
+{
+    // Members
+}
+```
+
+Classes can combine inheritance with interfaces
+
+- First identify the base type you **inherit** from
+- Add additional interfaces as needed
+- Separate the types with commas
+
+----
+
+# Generic Types
+
+```csharp
+[accessModifier] typeKeyword TypeName<T>
+{
+    // type members
+}
+```
+
+**Generics** can be applied to structs, classes and interfaces, where
+
+- `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
+- `typeKeyword` is either `class`, `struct` or `interface`
+- `TypeName` is the programmer-supplied name for the data type
+
+
+
+----
+
+# Generic Methods
+
+```csharp
+[accessModifier] [static] returnType MethodName<T>(ParameterList)
+{
+    // body of method
+}
+```
+
+**Generics** can be applied to [method declarations](#19), where
+
+- The generic type `<T>` can be explicitly or implicitly stated
+  - Explicit if the type `T` is not included in the parameter list
+  - Implicit if the type `T` is included in the parameter list
+- The `returnType` can be identified as the generic type `T`
+
+----
+
+# Object Instantiation
+
+```csharp
+new TypeName(argumentList)
+{
+    // Initializer List
+}
+```
+
+Objects can be instantiated from classes and structs using the `new` keyword, where
+
+- `TypeName` is the name of the class or struct
+- `argumentList` is a comma-separated list of values/expressions whose
+  - data type and order matches a constructor in the class/struct
+- The initializer list is
+  - a comma-separated list of assignments to public properties of the class/struct
+  - wrapped in parenthesis
+  - optional
+
+----
+
+# Delegates
+
+You declare a delegate similar to how you declare a [method signature for an interface](#35).
+
+```csharp
+delegate returnType DelegateName(parameterList);
+```
+
+You **instantiate** a delegate by passing in the name of a method with a **matching signature**.
+
+```csharp
+DelegateName methodInstance = new DelegateName(methodName)
+```
+
+You **invoke** (call) a delegate like you would [call any method](#22).
+
+```csharp
+methodInstance(argumentList)
+```
+
+----
+
+# Events
+
+[**Events**](https://docs.microsoft.com/en-us/dotnet/standard/events/) are based on [delegates](#43) but use the [**observer design pattern**](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern). They allow us to
+
+- Create "hooks" inside of our methods to invoke other methods as "observers"
+- "Publish" a single event to multiple "subscribers"
+
+> ".NET provides the [`EventHandler`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler?view=netcore-3.1) and [`EventHandler<TEventArgs>`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler-1?view=netcore-3.1) delegates to support most event scenarios. Use the [EventHandler](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler?view=netcore-3.1) delegate for all events that do not include event data. Use the [`EventHandler<TEventArgs>`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler-1?view=netcore-3.1) delegate for events that include data about the event. These delegates have no return type value and take two parameters (an object for the source of the event, and an object for event data)." ([MS Docs](https://docs.microsoft.com/en-us/dotnet/standard/events/))
+
+---
 
 <!--
 _backgroundColor: #1111

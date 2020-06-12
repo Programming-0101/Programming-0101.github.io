@@ -125,12 +125,14 @@ public class Die
 ![bg cover opacity:.15](03/blueprint.jpg)
 
 # Fraction Class (3 of 3)
+
 ### Enhancements
 
 * `void FixSign()` - Ensures any negative sign appears only on the numerator
 * `public bool IsProperFraction` - Returns `true` if it's a proper fraction
-* Implement the `*` and `/` Operators
-* Implement the `+` and `-` Operators
+* Add implementations for [**Arithmetic Operators**](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading)
+  * Implement the `*` and `/` Operators
+  * Implement the `+` and `-` Operators
 
 ---
 
@@ -395,4 +397,6 @@ public class DeckOfCards
 
 <!-- _backgroundColor: #222 -->
 
-# The End
+# The End of Part 1
+
+> [**Part 2**](04-Objects.html)
