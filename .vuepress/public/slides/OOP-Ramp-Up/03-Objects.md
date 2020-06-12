@@ -3,6 +3,10 @@ marp: true
 paginate: true
 ---
 
+<style>
+section { justify-content: flex-start; }
+</style>
+
 ![bg left:45% ](03/car-bluprint.jpg)
 
 # Class

@@ -78,7 +78,7 @@ _backgroundColor: lightsteelblue
 - Square brackets (**`[]`**) indicate an optional part of the syntax for the grammar rule
 - Brief explanation of terms
 
-> Focus on
+> Our focus is on
 
 * Common Grammar Elements
 * Classes and Class Members
@@ -463,16 +463,16 @@ The **if-else** provides **alternate paths of logic**, where
 ```csharp
 switch(cardinalExpression)
 {
-   case matchingExpression1:
-   statementOrStatementBlock
-   break;
-   case matchingExpression2:
-   statementOrStatementBlock
-   break;
-   // ...additional case statements...
-   default:
-   statementOrStatementBlock
-   break;
+    case matchingExpression1:
+        statementOrStatementBlock
+        break;
+    case matchingExpression2:
+        statementOrStatementBlock
+        break;
+    // ...additional case statements...
+    default:
+        statementOrStatementBlock
+        break;
 }
 ```
 ----
@@ -675,8 +675,7 @@ There are **no access modifiers** on interface members.
 # Data Types and Inheritance
 
 ```csharp
-[accessModifier] - `typeKeyword` is either `class`, `enum` or `interface`
- DerivedTypeName [: BaseType]
+[accessModifier] typeKeyword DerivedTypeName [: BaseType]
 {
     // Members
 }
@@ -721,8 +720,25 @@ Classes can combine inheritance with interfaces
 - `[accessModifier]` is either `public` or `internal`. If no access modifier is provided, then the default modifier is `internal`
 - `typeKeyword` is either `class`, `struct` or `interface`
 - `TypeName` is the programmer-supplied name for the data type
+- **`T`** is a generic **placeholder** for a type declared in a subtype or an instance of the generic
 
+----
 
+# Generic Types - Usage
+
+```csharp
+[accessModifier] classOrInterface DerivedTypeName [: GenericBase<DataType>]
+```
+
+You can create a subtype from a generic type ([**inheritance**](#38)), where
+
+- `Datatype` is a specific type
+
+```csharp
+new GenericType<DataType>(argumentList)
+```
+
+You can [instantiate](#43) from a generic type and provide the specific `DataType` at the moment of instantiation. 
 
 ----
 
