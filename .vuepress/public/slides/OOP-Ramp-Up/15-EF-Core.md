@@ -16,6 +16,8 @@ section { justify-content: flex-start; }
   - Store Data
   - Read Data
 
+> In This Presentation
+
 * Project Setup
 * Use JSON Data (*to store in database*)
 * Entity Framework Core
