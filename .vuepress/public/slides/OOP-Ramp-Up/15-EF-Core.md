@@ -9,20 +9,18 @@ section { justify-content: flex-start; }
 
 # EF Core in the Console
 
-- [ ] Entity Framework Core (short intro) - Console application
-  - [ ] Code-First (with or without Navigation Properties)
+![bg fit right](.15/../15/stick_figure_working_on_database_1600_clr_8845.png)
 
-1) Setup
-   1) Console App
-   1) NuGet
-      1) `Microsoft.EntityFrameworkCore.SqlServer`
-      1) (**SKIP** - only for scaffolding/reverse engineering) `Microsoft.EntityFrameworkCore.Tools`
-1) Create entity classes
-1) Create DAL class
-1) Create connection string
-1) Program
-   1) Read from JSON file, write to database
-   1) Read from database
+- Bare-bones Console Application
+- SQL Server Database
+  - Store Data
+  - Read Data
+
+* Project Setup
+* Use JSON Data (*to store in database*)
+* Entity Framework Core
+  * Entities
+  * Database Context
 
 ----
 
@@ -153,7 +151,7 @@ public class SchoolCatalogContext : DbContext
 
 ----
 
-# Method to Read JSOn Files
+# Method to Read JSON Files
 
 ```csharp
 using System.Collections.Generic;
@@ -176,3 +174,42 @@ IEnumerable<T> ReadData<T>(string fileName)
 }
 ```
 
+----
+
+# Code to Write to Database
+
+Get the data from the JSON files
+
+```csharp
+var courses = app.ReadData<Course>("courses.json");
+var terms = app.ReadData<Term>("terms.json");
+```
+
+Write the data to the database (only if tables are empty)
+```csharp
+using (var context = new Data.SchoolCatalogContext())
+{
+      if(!context.Courses.Any())
+         context.Courses.AddRange(courses);
+      if(!context.Terms.Any())
+         context.Terms.AddRange(terms);
+      context.SaveChanges();
+}
+```
+
+----
+
+# Code to Read from Database
+
+Read and display database contents
+
+```csharp
+using (var context = new Data.SchoolCatalogContext())
+{
+      foreach(var item in context.Courses)
+         Console.WriteLine(item);
+
+      foreach(var item in context.Terms)
+         Console.WriteLine(item);
+}
+```
