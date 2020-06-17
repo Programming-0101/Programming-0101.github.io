@@ -316,9 +316,10 @@ public enum CardValue
 ```csharp
 public class DeckOfCards
 {
+    private static Random Rnd = new Random();
     public List<PlayingCard> Cards { get; private set; }
     public int Count => Cards.Count;
-    public bool IsEmpty => Cards.Count == 0
+    public bool IsEmpty => Cards.Count == 0;
     public DeckOfCards()
     {
         Cards = new List<PlayingCard>();
