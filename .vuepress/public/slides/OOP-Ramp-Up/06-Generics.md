@@ -7,4 +7,4 @@ paginate: true
 section { justify-content: flex-start; }
 </style>
 
-# Arrays
+# Generics
