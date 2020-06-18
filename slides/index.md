@@ -2,7 +2,7 @@
 
 ## OOP Ramp-up
 
-- [Foundational Concepts](./oop-ramp-up/00-FoundationalConcepts.html)
+- [Foundational Concepts](./OOP-Ramp-Up/00-FoundationalConcepts.html)
 - [Grammar](./OOP-Ramp-Up/01-Grammar.html)
 - [Enums](./OOP-Ramp-Up/02-Enum.html)
 - [Simple Objects](./OOP-Ramp-Up/03-Objects.html)
