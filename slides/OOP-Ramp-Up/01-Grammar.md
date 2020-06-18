@@ -131,7 +131,7 @@ A **Variable Declaration** defines a new variable where
 - `dataType` is any built-in or programmer-defined data type.
 - `variableName` is an **identifier** (name) to represent a value
 - an optional initial value may be assigned, as denoted by `[= expression]`,
-  - `expression` is any valid C# expressionthat matches the variable's data type.
+  - `expression` is any valid C# expression that matches the variable's data type.
   - Declaring and initializing at the same time is called **Variable Initialization**.
 - Additional variable names (with or without initial values) can be declared using a comma-separated list.
   - All variables are of the same data type as the first variable in the list.
@@ -812,7 +812,7 @@ methodInstance(argumentList)
 
 > ".NET provides the [`EventHandler`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler?view=netcore-3.1) and [`EventHandler<TEventArgs>`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler-1?view=netcore-3.1) delegates to support most event scenarios. Use the [EventHandler](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler?view=netcore-3.1) delegate for all events that do not include event data. Use the [`EventHandler<TEventArgs>`](https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler-1?view=netcore-3.1) delegate for events that include data about the event. These delegates have no return type value and take two parameters (an object for the source of the event, and an object for event data)." ([MS Docs](https://docs.microsoft.com/en-us/dotnet/standard/events/))
 
----
+----
 
 <!--
 _backgroundColor: #1111
