@@ -9,23 +9,21 @@ section { justify-content: flex-start; }
 
 # Interfaces
 
-[![bg right:65% fit](05/interface.png)](https://www.lexico.com/en/definition/interface)
+[![bg right:65% fit](./08/interface.png)](https://www.lexico.com/en/definition/interface)
 
 Describes signatures
 
 - Properties
 - Methods
 
-
-TODO:
-
-- Interfaces in .Net Core
-
-
 <!--
 > **Dependency Inversion Principle**
 >
 > - Depend on abstractions, not on concretions
+
+TODO:
+
+- Interfaces in .Net Core
 -->
 
 ----
@@ -134,6 +132,8 @@ public class ControlPanel
 
 # Interface Example - `ILocatable` `IPingable`
 
+> Adapted from an old text-based *Star Trek* game
+> 
 ```csharp
 public interface ILocatable
 {
@@ -174,3 +174,8 @@ public class Space : IPingable
 ```
 
 ----
+
+<!-- _backgroundColor: #222 -->
+
+# The End
+
