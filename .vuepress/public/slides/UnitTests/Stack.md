@@ -4,17 +4,9 @@ paginate: true
 theme: gaia
 ---
 
-# An Intro to Unit Testing in 3 Parts
-
-* [Creating a Stack - Test-First](#2)
-* [TBA](#20)
-* TBA
-
-----
-
 # Creating a Stack - Test-First
 
-![bg right fit](./UncleBob.jpg)
+![bg right fit](./images/UncleBob.jpg)
 
 - C# version of Uncle Bob's [Java sample](https://youtu.be/58jGpV2Cg50?t=2655)
 - Using [xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
@@ -329,22 +321,7 @@ public int Pop()
 
 ----
 
-# End of Part 1
 <!-- _backgroundColor: #222 -->
 
-
-----
-
-----
-
-# End of Part 2
-<!-- _backgroundColor: #222 -->
-
-
-----
-
-# End of Part 3
-<!-- _backgroundColor: #222 -->
-
-----
+# The End
 

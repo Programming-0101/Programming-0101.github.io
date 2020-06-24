@@ -1,16 +1,14 @@
 ---
 marp: true
 paginate: true
+theme: gaia
 ---
 
-<style>
-section { justify-content: flex-start; }
-</style>
-
-# Extension Methods
+# Game of **War**
 
 ----
 
 <!-- _backgroundColor: #222 -->
 
 # The End
+
