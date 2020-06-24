@@ -26,7 +26,7 @@ theme: gaia
 
 ```csharp
 [Fact]
-public static void Create_Stack() //Nothing()
+public void Create_Stack() //Nothing()
 {
     Stack myStack = new Stack();
 }
@@ -45,7 +45,7 @@ public class Stack
 
 ```csharp
 [Fact]
-public static void Stack_Is_Empty() //Create_Stack() //Nothing()
+public void Stack_Is_Empty() //Create_Stack() //Nothing()
 {
     Stack myStack = new Stack();
     Assert.True(myStack.IsEmpty);
@@ -62,7 +62,7 @@ public static void Stack_Is_Empty() //Create_Stack() //Nothing()
 
 ```csharp
 [Fact]
-public static void Stack_Is_Not_Empty()
+public void Stack_Is_Not_Empty()
 {
     Stack stack = new Stack();
     stack.Push(0);
@@ -88,12 +88,12 @@ public class StackTest
 {
     Stack stack = new Stack();
     [Fact]
-    public static void Stack_Is_Empty()
+    public void Stack_Is_Empty()
     {
         Assert.True(stack.IsEmpty);
     }
     [Fact]
-    public static void Stack_Is_Not_Empty()
+    public void Stack_Is_Not_Empty()
     {
         stack.Push(0);
         Assert.False(stack.IsEmpty)
@@ -107,7 +107,7 @@ public class StackTest
 
 ```csharp
 [Fact]
-public static void Will_Throw_Underflow_When_Empty_Stack_Is_Popped()
+public void Will_Throw_Underflow_When_Empty_Stack_Is_Popped()
 {
     Assert.Throws<UnderflowException>(() => stack.Pop())
 }
@@ -159,8 +159,9 @@ public void Pop()
 public void After_Two_Pushes_And_One_Pop_Stack_Will_Not_Be_Empty()
 {
     stack.Push(0);
+    stack.Push(7);
     stack.Pop();
-    Assert.True(stack.IsEmpty);
+    Assert.False(stack.IsEmpty);
 }
 ```
 
@@ -200,7 +201,7 @@ public void After_Pushing_X_Will_Pop_X()
 {
     stack.Push(99);
     int actual = stack.Pop();
-    Assert.IsEqual(actual, 99);
+    Assert.Equal(actual, 99);
 }
 ```
 
@@ -221,6 +222,8 @@ public int Pop()
 ----
 
 # Augment the test
+
+Move from a `[Fact]` to a `[Theory]` by using different expectations.
 
 ```csharp
 [InlineData(99)]
@@ -275,7 +278,6 @@ public void After_Pushing_X_Then_Y_Will_Pop_Y_Then_X()
 
 ----
 
-
 # Make the test pass
 
 ```csharp
@@ -283,16 +285,26 @@ private int[] _Element = new int[2];
 
 public void Push(int number)
 {
-    _Element[_Size++] = number;
+    _Element[_Size] = number;
+    _Size++;
 }
 
 public int Pop()
 {
     if (IsEmpty)
         throw new UnderflowException();
-    return _Element[_Size--];
+    int element = _Element[_Size - 1];
+    _Size--;
+    return element;
 }
 ```
+
+----
+
+# Final Refactorings
+
+* Rename the `_Size` to `_LogicalSize`, as it's more meaningful
+
 
 ----
 
